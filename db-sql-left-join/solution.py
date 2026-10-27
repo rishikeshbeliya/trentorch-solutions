@@ -14,9 +14,8 @@
 -- Run (Ctrl/Cmd+Enter) executes your query; Submit checks it against the tests.
 
 -- TODO: Return id, name and order_count for every user, including users with no orders.
-
-SELECT u.id, u.name, COUNT(o.id) AS order_count 
-FROM users u 
-LEFT JOIN orders o 
-  ON o.user_id = u.id 
-GROUP BY u.id, u.name;
+select u.id, u.name, count(o.id) as order_count
+from users u
+left join orders o
+ on o.user_id = u.id
+group by u.id, u.name;
