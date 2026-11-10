@@ -1,5 +1,5 @@
 import numpy as np
-import math
+
 
 def skewness(x: np.ndarray) -> float:
     """
@@ -13,7 +13,10 @@ def skewness(x: np.ndarray) -> float:
     long left tail gives a negative one, a symmetric distribution
     gives (near) zero.
     """
-    return float(np.mean(((x - np.mean(x)) / np.std(x))**3))
+    mean = np.mean(x)
+    std = np.std(x)
+    pw = (x - mean)/std
+    return np.mean(pw**3)
 
 
 def summarize_distribution(x: np.ndarray) -> dict:
@@ -23,8 +26,8 @@ def summarize_distribution(x: np.ndarray) -> dict:
     is already provided above.
     """
     return {
-        "mean": float(np.mean(x)),
-        "median": float(np.median(x)),
-        "std": float(np.std(x)),
-        "skew": skewness(x),
+        "mean" : np.mean(x),
+        "median" : np.median(x),
+        "std" : np.std(x),
+        "skew": skewness(x)
     }
