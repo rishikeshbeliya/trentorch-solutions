@@ -11,10 +11,10 @@ def reward_discount_ledger(rewards: List[float], gamma: float) -> float:
     """
     # TODO: accumulate the discounted return with a running discount factor.
     g_0 = 0.0
-    discount = 1.0  # Starts at gamma**0 = 1.0
+    discount = 1.0 
     
     for r in rewards:
         g_0 += r * discount
-        discount *= gamma  # Becomes gamma**1, gamma**2, ...
+        discount *= gamma 
         
     return g_0
